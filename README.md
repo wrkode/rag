@@ -14,7 +14,7 @@ RAG requires the following environment variables to be set ahead of running:
 
 - ```KUBECONFIG```: Path to rancher kubeconfig file
 - ```RANCHER_SERVER_URL```: URL of the rancher server
-- ```RANCHER_TOKEN_KEY```: Bearer token key for rancher UI (the user must be authorized to list details of all managedd clusters in Rancher.)
+- ```RANCHER_TOKEN_KEY```: Bearer token key for rancher UI (the user must be authorized to list details of all managed clusters in Rancher.)
 
 ## Run
 
@@ -39,3 +39,7 @@ Node Name: rmsmig3, Node IP: 172.16.56.233
 Node Name: rmsmig1, Node IP: 172.16.56.231
 Node Name: rmsmig2, Node IP: 172.16.56.232
 ~~~
+
+## TO-DO
+
+Lots more :) .
