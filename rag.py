@@ -4,6 +4,8 @@ import requests
 import json
 from urllib3.exceptions import InsecureRequestWarning
 import warnings
+from prettytable import PrettyTable
+from termcolor import colored
 
 # Suppress only the single warning from urllib3 needed.
 warnings.filterwarnings('ignore', category=InsecureRequestWarning)
@@ -22,6 +24,7 @@ def main():
             if address.type == 'InternalIP' or address.type == 'ExternalIP':
                 print("IP: %s" % address.address)
 
+
     # Rancher API client
     rancher_server_url = os.getenv('RANCHER_SERVER_URL')
     rancher_token_key = os.getenv('RANCHER_TOKEN_KEY')
@@ -37,15 +40,24 @@ def main():
     
     # Loop over clusters
     for cluster in clusters:
-        print("Cluster Name: %s" % cluster['name'])
-        
+        # Initialize table
+        cluster_table = PrettyTable(['Node Name', 'Node IP'])
+        print("Cluster Name: %s, Cluster ID: %s, Kubernetes Version: %s, Provider: %s" % 
+          (colored(cluster['name'], 'red'), 
+           colored(cluster['id'], 'green'), 
+           colored(cluster['version']['gitVersion'], 'yellow'), 
+           colored(cluster['provider'], 'blue')))
+
         # Get nodes for each cluster
         response = requests.get(rancher_server_url + '/v3/nodes', headers=headers, params={'clusterId': cluster['id']}, verify=False)
         nodes = json.loads(response.text)['data']
         
-        # Loop over nodes
+        # Loop over nodes and add them to table
         for node in nodes:
-            print("Node Name: %s, Node IP: %s" % (node['hostname'], node['ipAddress']))
+            cluster_table.add_row([node['hostname'], node['ipAddress']])
+
+        # Print table
+        print(cluster_table)
 
 if __name__ == '__main__':
     main()
