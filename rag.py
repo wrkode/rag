@@ -3,9 +3,9 @@ from kubernetes import client, config
 import requests
 import json
 from urllib3.exceptions import InsecureRequestWarning
+from termcolor import colored
 import warnings
 from prettytable import PrettyTable
-from termcolor import colored
 
 # Suppress only the single warning from urllib3 needed.
 warnings.filterwarnings('ignore', category=InsecureRequestWarning)
@@ -24,7 +24,6 @@ def main():
             if address.type == 'InternalIP' or address.type == 'ExternalIP':
                 print("IP: %s" % address.address)
 
-
     # Rancher API client
     rancher_server_url = os.getenv('RANCHER_SERVER_URL')
     rancher_token_key = os.getenv('RANCHER_TOKEN_KEY')
@@ -40,13 +39,17 @@ def main():
     
     # Loop over clusters
     for cluster in clusters:
+        # Check if cluster is active
+        if cluster['state'] != 'active':
+            continue
+        
         # Initialize table
         cluster_table = PrettyTable(['Node Name', 'Node IP'])
         print("Cluster Name: %s, Cluster ID: %s, Kubernetes Version: %s, Provider: %s" % 
-          (colored(cluster['name'], 'red'), 
-           colored(cluster['id'], 'green'), 
-           colored(cluster['version']['gitVersion'], 'yellow'), 
-           colored(cluster['provider'], 'blue')))
+              (colored(cluster['name'], 'red'), 
+               colored(cluster['id'], 'green'), 
+               colored(cluster['version']['gitVersion'], 'yellow'), 
+               colored(cluster['provider'], 'blue')))
 
         # Get nodes for each cluster
         response = requests.get(rancher_server_url + '/v3/nodes', headers=headers, params={'clusterId': cluster['id']}, verify=False)
