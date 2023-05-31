@@ -12,7 +12,6 @@ install the python requirements:
 
 RAG requires the following environment variables to be set ahead of running:
 
-- ```KUBECONFIG```: Path to rancher kubeconfig file
 - ```RANCHER_SERVER_URL```: URL of the rancher server
 - ```RANCHER_TOKEN_KEY```: Bearer token key for rancher UI (the user must be authorized to list details of all managed clusters in Rancher.)
 
@@ -22,13 +21,6 @@ simply run ```python3 rag.py```
 The output will be displayed as follows:
 
 ~~~
-Listing nodes with their IPs:
-Node Name: rmsmig1
-IP: 172.16.56.231
-Node Name: rmsmig2
-IP: 172.16.56.232
-Node Name: rmsmig3
-IP: 172.16.56.233
 Cluster Name: edge-control, Cluster ID: c-m-2xqjmk8c, Kubernetes Version: N/A, Provider: , State: updating
 +-----------+---------+
 | Node Name | Node IP |

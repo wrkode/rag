@@ -1,5 +1,4 @@
 import os
-from kubernetes import client, config
 import requests
 import json
 from urllib3.exceptions import InsecureRequestWarning
@@ -11,18 +10,6 @@ from prettytable import PrettyTable
 warnings.filterwarnings('ignore', category=InsecureRequestWarning)
 
 def main():
-    # Kubernetes API client
-    config.load_kube_config(os.getenv('KUBECONFIG'))
-
-    v1 = client.CoreV1Api()
-
-    print("Listing nodes with their IPs:")
-    nodes = v1.list_node()
-    for node in nodes.items:
-        print("Node Name: %s" % node.metadata.name)
-        for address in node.status.addresses:
-            if address.type == 'InternalIP' or address.type == 'ExternalIP':
-                print("IP: %s" % address.address)
 
     # Rancher API client
     rancher_server_url = os.getenv('RANCHER_SERVER_URL')
