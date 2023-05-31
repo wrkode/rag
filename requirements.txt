@@ -1,2 +1,4 @@
 kubernetes
 requests
+prettytable
+termcolor
