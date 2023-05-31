@@ -29,19 +29,24 @@ Node Name: rmsmig2
 IP: 172.16.56.232
 Node Name: rmsmig3
 IP: 172.16.56.233
-Cluster Name: edge-south, Cluster ID: c-m-85v2d64d, Kubernetes Version: v1.25.9+k3s1, Provider: k3s
+Cluster Name: edge-control, Cluster ID: c-m-2xqjmk8c, Kubernetes Version: N/A, Provider: , State: updating
++-----------+---------+
+| Node Name | Node IP |
++-----------+---------+
++-----------+---------+
+Cluster Name: edge-south, Cluster ID: c-m-85v2d64d, Kubernetes Version: v1.25.9+k3s1, Provider: k3s, State: active
 +----------------------------------------+--------------+
 |               Node Name                |   Node IP    |
 +----------------------------------------+--------------+
 | edge-south-southsrvedge-3f048a35-9tmfl | 172.16.56.60 |
 +----------------------------------------+--------------+
-Cluster Name: edge-north, Cluster ID: c-m-m92glq6g, Kubernetes Version: v1.25.9+k3s1, Provider: k3s
+Cluster Name: edge-north, Cluster ID: c-m-m92glq6g, Kubernetes Version: v1.25.9+k3s1, Provider: k3s, State: active
 +-----------------------------------+--------------+
 |             Node Name             |   Node IP    |
 +-----------------------------------+--------------+
 | edge-north-srvedge-bbca0fad-ksdgs | 172.16.56.67 |
 +-----------------------------------+--------------+
-Cluster Name: fwutil, Cluster ID: c-m-pkh4mdtn, Kubernetes Version: v1.24.13+rke2r1, Provider: rke2
+Cluster Name: fwutil, Cluster ID: c-m-pkh4mdtn, Kubernetes Version: v1.24.13+rke2r1, Provider: rke2, State: active
 +----------------------------+--------------+
 |         Node Name          |   Node IP    |
 +----------------------------+--------------+
@@ -50,19 +55,27 @@ Cluster Name: fwutil, Cluster ID: c-m-pkh4mdtn, Kubernetes Version: v1.24.13+rke
 | fwutil-agnt-2df2ff2c-5tcdv | 172.16.56.78 |
 | fwutil-agnt-2df2ff2c-rg2s9 | 172.16.56.30 |
 +----------------------------+--------------+
-Cluster Name: edge-east, Cluster ID: c-m-xq46scp2, Kubernetes Version: v1.24.13+k3s1, Provider: k3s
+Cluster Name: edge-west, Cluster ID: c-m-x2w4f898, Kubernetes Version: v1.25.9+k3s1, Provider: k3s, State: active
++----------------------------------+--------------+
+|            Node Name             |   Node IP    |
++----------------------------------+--------------+
+| edge-west-srvwest-9cda9ee2-t8t7n | 172.16.56.61 |
++----------------------------------+--------------+
+Cluster Name: edge-east, Cluster ID: c-m-xq46scp2, Kubernetes Version: v1.24.13+k3s1, Provider: k3s, State: active
 +---------------------------------+--------------+
 |            Node Name            |   Node IP    |
 +---------------------------------+--------------+
 | edge-east-east01-f144cf88-5wnrh | 172.16.56.64 |
 +---------------------------------+--------------+
-Cluster Name: local, Cluster ID: local, Kubernetes Version: v1.24.4+rke2r1, Provider: rke2
+Cluster Name: local, Cluster ID: local, Kubernetes Version: v1.24.4+rke2r1, Provider: rke, State: active
 +-----------+---------------+
 | Node Name |    Node IP    |
 +-----------+---------------+
 |  rmsmig3  | 172.16.56.233 |
 |  rmsmig1  | 172.16.56.231 |
 |  rmsmig2  | 172.16.56.232 |
++-----------+---------------+
+
 
 
 ~~~
