@@ -1,7 +1,7 @@
 # Rancher Assessment Generator
 
 Very early work for a report/assessment Rancher tool.
-RAG is currently able to connect to Rancher and list all managed clusters and limited details of the associated nodes (hostname, IPs)
+RAG is currently able to connect to Rancher and list all managed clusters and limited details of cluster and associated nodes.
 
 ## Requirements
 
